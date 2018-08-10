@@ -22,13 +22,13 @@ import BSocketHelper
     private var currentSend: [CurrentSend] = []
     
     
-    @objc open func start(withStoreKey storeKey: String, andPort port: Int=1111) {
+    @objc open func start(withStoreKey storeKey: String, andPort port: Int=1111, env:Environment=Environment.prod) {
         BSocketHelper.shared.start(onPort: port,
                                    withDeviceSerial: self.deviceSerial,
                                    andDeviceHostOrder: nil,
                                    andStoreKey: storeKey,
                                    andAppVersion: nil,
-                                   andAppId: self.appId,
+                                   andAppId: self.appId + (env == .stage ? "-Stage" : env == .dev ? "-Dev" : ""),
                                    andDeviceType: .pos,
                                    andSocketHelperDelegate: self)
     }
@@ -166,5 +166,10 @@ import BSocketHelper
     
     public func update(port: Int) throws {
         try BSocketHelper.shared.update(port: port)
+    }
+    
+    
+    @objc public enum Environment: Int {
+        case prod, stage, dev
     }
 }
