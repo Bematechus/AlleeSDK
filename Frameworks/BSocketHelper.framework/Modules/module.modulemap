@@ -1,0 +1,11 @@
+framework module BSocketHelper {
+  umbrella header "BSocketHelper.h"
+
+  export *
+  module * { export * }
+}
+
+module BSocketHelper.Swift {
+    header "BSocketHelper-Swift.h"
+    requires objc
+}
