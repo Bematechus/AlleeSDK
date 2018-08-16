@@ -1,0 +1,3 @@
+[submodule "Frameworks/AlleeCommon"]
+	path = Frameworks/AlleeCommon
+	url = https://github.com/Bematechus/AlleeCommon.git
