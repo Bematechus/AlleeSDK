@@ -23,6 +23,8 @@ import Foundation
     
     @objc open var condiments: [AlleeCondiment]?
     
+    @objc open var summary: AlleeSummary?
+    
     
     public override init() {
     }
