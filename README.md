@@ -1,5 +1,6 @@
 # AlleeSDK
-AlleeSDK connects via TCP-IP communication point of sales software to kitchenGo allee software. This SDK works for IOS platform only.
+AlleeSDK connects via TCP-IP communication point of sales software to kitchenGo allee software.  
+This SDK works for IOS platform only.
 ## Installation
 ### Cocoapods
 AlleeSDK can be added to your project using [CocoaPods](https://cocoapods.org) by adding the following line to your `Podfile`:
