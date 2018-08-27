@@ -203,10 +203,6 @@ SWIFT_PROTOCOL("_TtP13BSocketHelper21BSocketHelperDelegate_")
 - (void)receivedWithMessage:(NSString * _Nonnull)message;
 - (void)newDeviceFoundWithDevice:(BroadcastDevice * _Nonnull)device;
 - (void)updatedWithDevices:(NSArray<BroadcastDevice *> * _Nonnull)devices;
-- (void)startGettingData;
-- (void)endGettingData;
-- (void)updatedWithTables:(NSArray<NSString *> * _Nonnull)tables andInsertedTables:(NSArray<NSString *> * _Nonnull)insertedTables;
-- (void)receivedWithEntity:(NSString * _Nonnull)entity obj:(NSObject * _Nonnull)obj;
 @end
 
 
