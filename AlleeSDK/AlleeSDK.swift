@@ -111,7 +111,7 @@ import BSocketHelper
             
             switch type {
             case TypeSocketMessage.callback:
-                guard let socketCallback = SocketCallback.from(json: message) else {
+                guard let socketCallback = SocketCallback.from(json:  message.fromAES() ?? "") else {
                     return
                 }
                 
