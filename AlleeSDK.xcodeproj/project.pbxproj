@@ -15,6 +15,7 @@
 		FA1BA610210A44CC0008030E /* AlleeCondiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA5C1210A41BB0008030E /* AlleeCondiment.swift */; };
 		FA1C3E94211B64A300E0D18C /* BSocketHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1C3E93211B64A300E0D18C /* BSocketHelper.framework */; };
 		FA798C95212612470053ED23 /* AlleeSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA798C94212612470053ED23 /* AlleeSummary.swift */; };
+		FAA71FD8215D4A2A0006E03D /* AlleeItemRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA71FD7215D4A2A0006E03D /* AlleeItemRecipe.swift */; };
 		FAB0992E2109191600CE1D5C /* AlleeSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB0992C2109191600CE1D5C /* AlleeSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAB0994B21091C3900CE1D5C /* AlleeSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB0994A21091C3900CE1D5C /* AlleeSDK.swift */; };
 		FAE24D1F211B2D2C002EDE9E /* AlleeSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FAE24D1E211B2D2C002EDE9E /* AlleeSDK.podspec */; };
@@ -50,6 +51,7 @@
 		FA1BA5C1210A41BB0008030E /* AlleeCondiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeCondiment.swift; sourceTree = "<group>"; };
 		FA1C3E93211B64A300E0D18C /* BSocketHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSocketHelper.framework; path = Frameworks/BSocketHelper.framework; sourceTree = "<group>"; };
 		FA798C94212612470053ED23 /* AlleeSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeSummary.swift; sourceTree = "<group>"; };
+		FAA71FD7215D4A2A0006E03D /* AlleeItemRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeItemRecipe.swift; sourceTree = "<group>"; };
 		FAB099292109191600CE1D5C /* AlleeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlleeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB0992C2109191600CE1D5C /* AlleeSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlleeSDK.h; sourceTree = "<group>"; };
 		FAB0992D2109191600CE1D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,12 +92,13 @@
 		FA1BA5BE210A41BB0008030E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA1796A72119CF4400E4129E /* AlleeOrder.swift */,
-				FA1796A62119CF4400E4129E /* AlleeItem.swift */,
 				FA1BA5C1210A41BB0008030E /* AlleeCondiment.swift */,
 				FA1796A82119CF4400E4129E /* AlleeCustomer.swift */,
-				FA1BA5BF210A41BB0008030E /* AlleeTransType.swift */,
+				FA1796A62119CF4400E4129E /* AlleeItem.swift */,
+				FAA71FD7215D4A2A0006E03D /* AlleeItemRecipe.swift */,
+				FA1796A72119CF4400E4129E /* AlleeOrder.swift */,
 				FA798C94212612470053ED23 /* AlleeSummary.swift */,
+				FA1BA5BF210A41BB0008030E /* AlleeTransType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,7 +180,7 @@
 		FAB099202109191600CE1D5C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Bematech;
 				TargetAttributes = {
 					FAB099282109191600CE1D5C = {
@@ -225,6 +228,7 @@
 				FAB0994B21091C3900CE1D5C /* AlleeSDK.swift in Sources */,
 				FA1BA610210A44CC0008030E /* AlleeCondiment.swift in Sources */,
 				FA1796AB2119CF4400E4129E /* AlleeCustomer.swift in Sources */,
+				FAA71FD8215D4A2A0006E03D /* AlleeItemRecipe.swift in Sources */,
 				FA798C95212612470053ED23 /* AlleeSummary.swift in Sources */,
 				FA1BA5C3210A41BB0008030E /* SocketSendOrder.swift in Sources */,
 			);
@@ -356,7 +360,6 @@
 		FAB099322109191600CE1D5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -396,7 +399,6 @@
 		FAB099332109191600CE1D5C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

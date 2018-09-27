@@ -12,7 +12,7 @@ import BSocketHelper
 
 @objc open class AlleeSDK: NSObject, BSocketHelperDelegate {
 
-    @objc static open let shared = AlleeSDK()
+    @objc static public let shared = AlleeSDK()
     
     private let deviceSerial = UIDevice.current.identifierForVendor!.uuidString
     private let appId = "com.bematech.allee"
@@ -21,8 +21,11 @@ import BSocketHelper
     private let maxAttempts = 5
     private var currentSend: [CurrentSend] = []
     
+    private var storeKey: String?
     
     @objc open func start(withStoreKey storeKey: String, andPort port: Int=1111, env:Environment=Environment.prod) {
+        self.storeKey = storeKey
+        
         BSocketHelper.shared.start(onPort: port,
                                    withDeviceSerial: self.deviceSerial,
                                    andDeviceHostOrder: nil,
@@ -59,7 +62,7 @@ import BSocketHelper
         
         self.currentSend.append(CurrentSend(guid: currentGuid, deviceSerial: deviceSerial, callback: callback))
         
-        guard let request = SocketSendOrder(guid: currentGuid, order: order,
+        guard let request = SocketSendOrder(guid: currentGuid, storeKey: self.storeKey ?? "", order: order,
                                             deviceSerial: self.deviceSerial).toJson()?.toAES() else {
                                                 
                                                 DispatchQueue.main.async {
@@ -160,6 +163,7 @@ import BSocketHelper
     
     
     public func update(storeKey: String) {
+        self.storeKey = storeKey
         BroadcastDiscovery.shared.update(storeKey: storeKey)
     }
     
