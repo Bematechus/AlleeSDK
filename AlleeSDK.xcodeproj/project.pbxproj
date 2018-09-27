@@ -18,7 +18,6 @@
 		FAA71FD8215D4A2A0006E03D /* AlleeItemRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA71FD7215D4A2A0006E03D /* AlleeItemRecipe.swift */; };
 		FAB0992E2109191600CE1D5C /* AlleeSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB0992C2109191600CE1D5C /* AlleeSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAB0994B21091C3900CE1D5C /* AlleeSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB0994A21091C3900CE1D5C /* AlleeSDK.swift */; };
-		FAE24D1F211B2D2C002EDE9E /* AlleeSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FAE24D1E211B2D2C002EDE9E /* AlleeSDK.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -211,7 +210,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE24D1F211B2D2C002EDE9E /* AlleeSDK.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
