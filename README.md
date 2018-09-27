@@ -136,4 +136,16 @@ Still, if you need to provide more information in your order, please check all o
     var webmail: String? // Customer webmail 
     var transType: AlleeTransType = .insert // Type of transaction (insert, delete, update)
     
+        
+#### AlleeSummary
+
+    var ingredientName: String? // Ingredient name
+    var ingredientQuantity: Int = 1 // Quantity of this ingredient
+    
+
+#### AlleeItemRecipe
+
+    var image: String? // Image URL
+    var ingredients: [String]? // List of ingredients
+    var steps: [String]? // List of steps
 
