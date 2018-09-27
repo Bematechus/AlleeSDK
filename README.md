@@ -110,6 +110,8 @@ Still, if you need to provide more information in your order, please check all o
     var kDSStation: String? // Target KDS preparation station
     var transType: AlleeTransType = .insert // Type of transaction (insert, delete, update)
     var condiments: [AlleeCondiment]? // Item condiments
+    var summary: AlleeSummary? // Summary of this item
+    var itemRecipe: AlleeItemRecipe? // Recipe of this item
     
     
 #### AlleeCondiment
