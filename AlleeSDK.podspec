@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.swift_version    = '4.2'
   s.name             = 'AlleeSDK'
-  s.version          = '1.3.2'
+  s.version          = '1.4'
   s.platform         = :ios
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.summary          = 'AlleeSDK help you to integrate your POS with our KDS' 

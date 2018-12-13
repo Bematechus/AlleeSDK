@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0CE2DD21C12D9100C52F68 /* SocketNotifyBump.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2DA21C12D9100C52F68 /* SocketNotifyBump.swift */; };
+		FA0CE2DE21C12D9100C52F68 /* SocketOrdersBumpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2DB21C12D9100C52F68 /* SocketOrdersBumpRequest.swift */; };
+		FA0CE2DF21C12D9100C52F68 /* SocketOrdersBumpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2DC21C12D9100C52F68 /* SocketOrdersBumpResponse.swift */; };
+		FA0CE2E221C12DAB00C52F68 /* AlleeBumpStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2E021C12DAB00C52F68 /* AlleeBumpStatus.swift */; };
+		FA0CE2E321C12DAB00C52F68 /* AlleeOrderBumpStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2E121C12DAB00C52F68 /* AlleeOrderBumpStatus.swift */; };
+		FA0CE2E521C1346B00C52F68 /* OrdersBumpStatusDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2E421C1346B00C52F68 /* OrdersBumpStatusDelegate.swift */; };
 		FA1796A92119CF4400E4129E /* AlleeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1796A62119CF4400E4129E /* AlleeItem.swift */; };
 		FA1796AA2119CF4400E4129E /* AlleeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1796A72119CF4400E4129E /* AlleeOrder.swift */; };
 		FA1796AB2119CF4400E4129E /* AlleeCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1796A82119CF4400E4129E /* AlleeCustomer.swift */; };
@@ -42,6 +48,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA0CE2DA21C12D9100C52F68 /* SocketNotifyBump.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketNotifyBump.swift; sourceTree = "<group>"; };
+		FA0CE2DB21C12D9100C52F68 /* SocketOrdersBumpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketOrdersBumpRequest.swift; sourceTree = "<group>"; };
+		FA0CE2DC21C12D9100C52F68 /* SocketOrdersBumpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketOrdersBumpResponse.swift; sourceTree = "<group>"; };
+		FA0CE2E021C12DAB00C52F68 /* AlleeBumpStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeBumpStatus.swift; sourceTree = "<group>"; };
+		FA0CE2E121C12DAB00C52F68 /* AlleeOrderBumpStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeOrderBumpStatus.swift; sourceTree = "<group>"; };
+		FA0CE2E421C1346B00C52F68 /* OrdersBumpStatusDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersBumpStatusDelegate.swift; sourceTree = "<group>"; };
 		FA1796A62119CF4400E4129E /* AlleeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeItem.swift; sourceTree = "<group>"; };
 		FA1796A72119CF4400E4129E /* AlleeOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeOrder.swift; sourceTree = "<group>"; };
 		FA1796A82119CF4400E4129E /* AlleeCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeCustomer.swift; sourceTree = "<group>"; };
@@ -83,6 +95,9 @@
 		FA1BA5BC210A41BB0008030E /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				FA0CE2DA21C12D9100C52F68 /* SocketNotifyBump.swift */,
+				FA0CE2DB21C12D9100C52F68 /* SocketOrdersBumpRequest.swift */,
+				FA0CE2DC21C12D9100C52F68 /* SocketOrdersBumpResponse.swift */,
 				FA1BA5BD210A41BB0008030E /* SocketSendOrder.swift */,
 			);
 			path = Messages;
@@ -91,11 +106,13 @@
 		FA1BA5BE210A41BB0008030E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA0CE2E021C12DAB00C52F68 /* AlleeBumpStatus.swift */,
 				FA1BA5C1210A41BB0008030E /* AlleeCondiment.swift */,
 				FA1796A82119CF4400E4129E /* AlleeCustomer.swift */,
 				FA1796A62119CF4400E4129E /* AlleeItem.swift */,
 				FAA71FD7215D4A2A0006E03D /* AlleeItemRecipe.swift */,
 				FA1796A72119CF4400E4129E /* AlleeOrder.swift */,
+				FA0CE2E121C12DAB00C52F68 /* AlleeOrderBumpStatus.swift */,
 				FA798C94212612470053ED23 /* AlleeSummary.swift */,
 				FA1BA5BF210A41BB0008030E /* AlleeTransType.swift */,
 			);
@@ -126,6 +143,7 @@
 				FAB0992C2109191600CE1D5C /* AlleeSDK.h */,
 				FAB0994A21091C3900CE1D5C /* AlleeSDK.swift */,
 				FAB0992D2109191600CE1D5C /* Info.plist */,
+				FA0CE2E421C1346B00C52F68 /* OrdersBumpStatusDelegate.swift */,
 			);
 			path = AlleeSDK;
 			sourceTree = "<group>";
@@ -220,13 +238,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0CE2DF21C12D9100C52F68 /* SocketOrdersBumpResponse.swift in Sources */,
 				FA1BA60E210A44CC0008030E /* AlleeTransType.swift in Sources */,
 				FA1796AA2119CF4400E4129E /* AlleeOrder.swift in Sources */,
 				FA1796A92119CF4400E4129E /* AlleeItem.swift in Sources */,
+				FA0CE2DD21C12D9100C52F68 /* SocketNotifyBump.swift in Sources */,
 				FAB0994B21091C3900CE1D5C /* AlleeSDK.swift in Sources */,
 				FA1BA610210A44CC0008030E /* AlleeCondiment.swift in Sources */,
+				FA0CE2E221C12DAB00C52F68 /* AlleeBumpStatus.swift in Sources */,
+				FA0CE2E321C12DAB00C52F68 /* AlleeOrderBumpStatus.swift in Sources */,
+				FA0CE2DE21C12D9100C52F68 /* SocketOrdersBumpRequest.swift in Sources */,
 				FA1796AB2119CF4400E4129E /* AlleeCustomer.swift in Sources */,
 				FAA71FD8215D4A2A0006E03D /* AlleeItemRecipe.swift in Sources */,
+				FA0CE2E521C1346B00C52F68 /* OrdersBumpStatusDelegate.swift in Sources */,
 				FA798C95212612470053ED23 /* AlleeSummary.swift in Sources */,
 				FA1BA5C3210A41BB0008030E /* SocketSendOrder.swift in Sources */,
 			);

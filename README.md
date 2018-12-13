@@ -37,49 +37,72 @@ To start use our AlleeSDK you need start it in your AppDelegate. I will need a S
 Allee orders are made with one `AlleeOrder` with any `AlleeItem` with any `AlleeCondiment`.  
 So first we need create the condiments:
 
-        let condiment = AlleeCondiment()
-        condiment.id = UUID().uuidString
-        condiment.name = "Tomatoes"
+    let condiment = AlleeCondiment()
+    condiment.id = UUID().uuidString
+    condiment.name = "Tomatoes"
         
 Then we can to create our items, inserting our condiments:
 
-        let item = AlleeItem()
-        item.id = UUID().uuidString
-        item.name = "Veggie Burger"
-        item.kDSStation = "1" // Target KDS preparation station
-        item.quantity = 3
-        item.condiments = condiments
+    let item = AlleeItem()
+    item.id = UUID().uuidString
+    item.name = "Veggie Burger"
+    item.kDSStation = "1" // Target KDS preparation station
+    item.quantity = 3
+    item.condiments = condiments
         
         
 And to create our order, using the created items:
 
-        let order = AlleeOrder()
-        order.id = "1"
-        order.items = items
+    let order = AlleeOrder()
+    order.id = "1"
+    order.items = items
         
 
 We can also add a customer to order, using `AlleeCustomer`. **All customer data will be encrypted**:
 
-        let customer = AlleeCustomer()
-        customer.id = UUID().uuidString
-        customer.name = "NAME"
-        customer.phone = "PHONE"
-        
-        order.customer = customer
+    let customer = AlleeCustomer()
+    customer.id = UUID().uuidString
+    customer.name = "NAME"
+    customer.phone = "PHONE"
+
+    order.customer = customer
         
         
 Now we need send this order to KDS, to do that we will use the `AlleeSDK.shared`:
 
-        AlleeSDK.shared.send(order: order) { (error) in
-            if let error = error {
-                print(error)
-                
-            } else {
-                print("Order sent")
-            }
+    AlleeSDK.shared.send(order: order) { (error) in
+        if let error = error {
+            print(error)
+
+        } else {
+            print("Order sent")
         }
+    }
         
-        
+
+### Orders preparation status
+The AlleeSDK provides an observer for your POS to receive the orders status.  It is triggered automatically when some order status is changed, but you can also request manually if you need.
+
+Set the delegate (**OrdersBumpStatusDelegate**) before the start:
+
+    AlleeSDK.shared.ordersBumpStatusDelegate = self
+
+And implement the method:
+
+    func updated(ordersBumpStatus: [AlleeOrderBumpStatus]) {
+
+    }
+    
+If you need you can request the orders status manually (Optional):
+
+    AlleeSDK.shared.requestOrdersStatus { (error) in
+        if let error = error {
+            print(error)
+        }
+    }
+    
+**Note**: Only the new orders status is received.  
+  
 ### Full Models
 Still, if you need to provide more information in your order, please check all our orders data:
 

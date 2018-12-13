@@ -24,6 +24,9 @@ import BSocketHelper
     private var currentSend: [CurrentSend] = []
     
     private var storeKey: String?
+    private var lastTargetDevice: String?
+    
+    public var ordersBumpStatusDelegate: OrdersBumpStatusDelegate?
     
     @objc open func start(withStoreKey storeKey: String, andPort port: Int=1111, env:Environment=Environment.prod) {
         self.storeKey = storeKey
@@ -104,7 +107,7 @@ import BSocketHelper
             return nil
         }
         
-        guard let toDevice = device.serial else {
+        guard let toDeviceSerial = device.serial else {
             DispatchQueue.main.async {
                 callback("Invalid serial")
             }
@@ -121,9 +124,9 @@ import BSocketHelper
                                                 return nil
         }
         
-        self.currentSend.append(CurrentSend(guid: currentGuid, deviceSerial: toDevice, callback: callback))
+        self.currentSend.append(CurrentSend(guid: currentGuid, deviceSerial: toDeviceSerial, callback: callback))
         
-        return (currentGuid, toDevice, request)
+        return (currentGuid, toDeviceSerial, request)
     }
     
     
@@ -133,26 +136,87 @@ import BSocketHelper
             
             switch type {
             case TypeSocketMessage.callback:
-                guard let socketCallback = SocketCallback.from(json:  message.fromAES() ?? "") else {
-                    return
-                }
+                self.workOnCallback(message: message)
                 
-                guard let currenSendIndex = self.currentSend.index(where: { (c2) -> Bool in
-                    return c2.guid == socketMessage?.guid
-                    
-                }) else {
-                    return
-                }
+            case TypeSocketMessage.notifyBump:
+                self.workOnNotifyBump(message: message)
                 
-                let currentSend = self.currentSend.remove(at: currenSendIndex)
-                
-                DispatchQueue.main.async {
-                    currentSend.callback(socketCallback.error)
-                }
+            case TypeSocketMessage.ordersBumpResponse:
+                self.workOnOrderStatusResponse(message: message)
                 
             default: break
             }
         }
+    }
+    
+    
+    private func workOnCallback(message: String) {
+        guard let socketCallback = SocketCallback.from(json:  message.fromAES() ?? "") else {
+            return
+        }
+        
+        guard let currenSendIndex = self.currentSend.index(where: { (c2) -> Bool in
+            return c2.guid == socketCallback.guid
+            
+        }) else {
+            return
+        }
+        
+        let currentSend = self.currentSend.remove(at: currenSendIndex)
+        
+        DispatchQueue.main.async {
+            currentSend.callback(socketCallback.error)
+        }
+    }
+    
+    
+    private func workOnNotifyBump(message: String) {
+        if self.ordersBumpStatusDelegate == nil {
+            return
+        }
+        
+        guard let notify = SocketNotifyBump.from(json:  message.fromAES() ?? ""),
+            let toDeviceSerial = self.getTargetDevice()?.serial else { return }
+        
+        self.requestOrdersStatus(guid: notify.guid, toDeviceSerial: toDeviceSerial)
+    }
+    
+    
+    private func workOnOrderStatusResponse(message: String) {
+        guard let response = SocketOrdersBumpResponse.from(json:  message.fromAES() ?? "") else {
+            return
+        }
+        
+        guard let ordersStatus = response.ordersBumpStatus, let lastUpdateTime = response.lastUpdateTime else { return }
+        
+        self.save(lastUpdateTimeForOrdersStatus: lastUpdateTime)
+        
+        self.ordersBumpStatusDelegate?.updated(ordersBumpStatus: ordersStatus)
+    }
+    
+    
+    public func requestOrdersStatus(callback: @escaping Callback) {
+        guard let device = self.getTargetDevice() else {
+            callback("No Allees available")
+            return
+        }
+        
+        guard let toDeviceSerial = device.serial else {
+            callback("Invalid serial")
+            return
+        }
+        
+        self.requestOrdersStatus(guid: UUID().uuidString, toDeviceSerial: toDeviceSerial)
+    }
+    
+    
+    private func requestOrdersStatus(guid: String, toDeviceSerial: String) {
+        let request = SocketOrdersBumpRequest(guid: guid, storeKey: self.storeKey ?? "",
+                                              lastUpdateTime: self.lastUpdateTimeForOrdersStatus(), deviceSerial: self.deviceSerial)
+        
+        guard let requestJson = request.toJson()?.toAES() else { return }
+        
+        BSocketHelper.shared.send(msg: requestJson, toDeviceSerial: toDeviceSerial, deviceType: .kds)
     }
     
     
@@ -161,6 +225,51 @@ import BSocketHelper
             return d1.hostOrder ?? 999 < d2.hostOrder ?? 999
         }
     }
+    
+    
+    public func update(storeKey: String) {
+        self.storeKey = storeKey
+        BroadcastDiscovery.shared.update(storeKey: storeKey)
+    }
+    
+    
+    public func update(port: Int) throws {
+        try BSocketHelper.shared.update(port: port)
+    }
+    
+    
+    private func save(lastUpdateTimeForOrdersStatus: Double) {
+        if lastUpdateTimeForOrdersStatus > 0 {
+            UserDefaults.standard.set(lastUpdateTimeForOrdersStatus, forKey: "lastUpdateTimeForOrdersStatus")
+        }
+    }
+    
+    
+    private func lastUpdateTimeForOrdersStatus() -> Double? {
+        return UserDefaults.standard.double(forKey: "lastUpdateTimeForOrdersStatus")
+    }
+    
+    public func updated(devices: [BroadcastDevice]) {
+        let targetDevice = self.getTargetDevice()
+        
+        if self.lastTargetDevice == targetDevice?.serial {
+            return
+        }
+        
+        self.lastTargetDevice = targetDevice?.serial
+        
+        self.requestOrdersStatus { (error) in
+            if let error = error {
+                print("Failed on get orders status: \(error)")
+            }
+        }
+    }
+    
+    
+    @objc public enum Environment: Int {
+        case prod, stage, dev
+    }
+    
     
     private struct CurrentSend: Equatable {
         
@@ -178,21 +287,5 @@ import BSocketHelper
         static func == (lhs: AlleeSDK.CurrentSend, rhs: AlleeSDK.CurrentSend) -> Bool {
             return lhs.guid == rhs.guid
         }
-    }
-    
-    
-    public func update(storeKey: String) {
-        self.storeKey = storeKey
-        BroadcastDiscovery.shared.update(storeKey: storeKey)
-    }
-    
-    
-    public func update(port: Int) throws {
-        try BSocketHelper.shared.update(port: port)
-    }
-    
-    
-    @objc public enum Environment: Int {
-        case prod, stage, dev
     }
 }
