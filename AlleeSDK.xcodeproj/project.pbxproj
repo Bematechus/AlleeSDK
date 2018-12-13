@@ -142,8 +142,8 @@
 			children = (
 				FAB0992C2109191600CE1D5C /* AlleeSDK.h */,
 				FAB0994A21091C3900CE1D5C /* AlleeSDK.swift */,
-				FAB0992D2109191600CE1D5C /* Info.plist */,
 				FA0CE2E421C1346B00C52F68 /* OrdersBumpStatusDelegate.swift */,
+				FAB0992D2109191600CE1D5C /* Info.plist */,
 			);
 			path = AlleeSDK;
 			sourceTree = "<group>";

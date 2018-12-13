@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
  
   s.ios.deployment_target = '8'
 
-  s.source_files     = 'AlleeSDK/AlleeSDK.h', 'AlleeSDK/AlleeSDK.swift',
+  s.source_files     = 'AlleeSDK/AlleeSDK.h', 'AlleeSDK/*.swift',
                        'Frameworks/AlleeCommon/Models/*.swift',
                        'Frameworks/AlleeCommon/Messages/*.swift'
 
