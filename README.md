@@ -141,7 +141,7 @@ Still, if you need to provide more information in your order, please check all o
     var buildCard: String? // A text or a link with steps to prepare the item
     var trainingVideo: String? // A video link with steps to prepare the item
     var preModifier: [String]? // Item custom messages
-    var preparationTime: Double // How long time to prepare this item (in minutes)
+    var preparationTime: NSNumber // How long time to prepare this item (in minutes)
     var quantity: Int = 1 // Item quantity
     var kDSStation: String? // Target KDS preparation station
     var transType: AlleeTransType = .insert // Type of transaction (insert, delete, update)
@@ -157,6 +157,7 @@ Still, if you need to provide more information in your order, please check all o
     var name: String? // Condiment Name
     var preModifier: [String]? // Condiment custom messages
     var transType: AlleeTransType = .insert // Type of transaction (insert, delete, update)
+    var preparationTime: NSNumber // How long time to prepare this condiment (in minutes)
     
     
 #### AlleeCustomer
