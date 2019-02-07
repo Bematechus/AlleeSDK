@@ -35,7 +35,7 @@ import BSocketHelper
                                    withDeviceSerial: self.deviceSerial,
                                    andDeviceHostOrder: nil,
                                    andStoreKey: storeKey,
-                                   andAppVersion: nil,
+                                   andDBVersion: nil,
                                    andAppId: self.appId + (env == .stage ? "-Stage" : env == .dev ? "-Dev" : ""),
                                    andDeviceType: .pos,
                                    andSocketHelperDelegate: self)
@@ -216,7 +216,7 @@ import BSocketHelper
         
         guard let requestJson = request.toJson()?.toAES() else { return }
         
-        BSocketHelper.shared.send(msg: requestJson, toDeviceSerial: toDeviceSerial, deviceType: .kds)
+        BSocketHelper.shared.send(msg: requestJson, toDeviceSerial: toDeviceSerial, deviceTypes: [.kds])
     }
     
     
