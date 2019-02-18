@@ -59,7 +59,7 @@ import BSocketHelper
     private func send(order: AlleeOrder?, orderXML: String?, callback: @escaping Callback, attempts: Int) {
         guard let request = self.makeRequest(order: order, orderXML: orderXML, callback: callback) else { return }
         
-        BSocketHelper.shared.send(msg: request.json, toDeviceSerial: request.deviceSerial) { (error) in
+        BSocketHelper.shared.send(msg: request.json, toDeviceSerial: request.deviceSerial, crypt: true) { (error) in
             if let error = error {
                 if attempts > self.maxAttempts {
                     DispatchQueue.main.async {
@@ -116,7 +116,7 @@ import BSocketHelper
         
         guard let request = SocketSendOrder(guid: currentGuid, storeKey: self.storeKey ?? "",
                                             order: order, orderXML: orderXML,
-                                            deviceSerial: self.deviceSerial).toJson()?.toAES() else {
+                                            deviceSerial: self.deviceSerial).toJson() else {
                                                 
                                                 DispatchQueue.main.async {
                                                     callback("Failed to create request")
@@ -131,7 +131,7 @@ import BSocketHelper
     
     
     public func received(message: String) {
-        let socketMessage = BaseSocketMessage.fromBase(json: message.fromAES() ?? "")
+        let socketMessage = BaseSocketMessage.fromBase(json: message)
         if let type = socketMessage?.type {
             
             switch type {
@@ -151,7 +151,7 @@ import BSocketHelper
     
     
     private func workOnCallback(message: String) {
-        guard let socketCallback = SocketCallback.from(json:  message.fromAES() ?? "") else {
+        guard let socketCallback = SocketCallback.from(json:  message) else {
             return
         }
         
@@ -175,7 +175,7 @@ import BSocketHelper
             return
         }
         
-        guard let notify = SocketNotifyBump.from(json:  message.fromAES() ?? ""),
+        guard let notify = SocketNotifyBump.from(json:  message),
             let toDeviceSerial = self.getTargetDevice()?.serial else { return }
         
         self.requestOrdersStatus(guid: notify.guid, toDeviceSerial: toDeviceSerial)
@@ -183,7 +183,7 @@ import BSocketHelper
     
     
     private func workOnOrderStatusResponse(message: String) {
-        guard let response = SocketOrdersBumpResponse.from(json:  message.fromAES() ?? "") else {
+        guard let response = SocketOrdersBumpResponse.from(json:  message) else {
             return
         }
         
@@ -214,9 +214,9 @@ import BSocketHelper
         let request = SocketOrdersBumpRequest(guid: guid, storeKey: self.storeKey ?? "",
                                               lastUpdateTime: self.lastUpdateTimeForOrdersStatus(), deviceSerial: self.deviceSerial)
         
-        guard let requestJson = request.toJson()?.toAES() else { return }
+        guard let requestJson = request.toJson() else { return }
         
-        BSocketHelper.shared.send(msg: requestJson, toDeviceSerial: toDeviceSerial, deviceTypes: [.kds])
+        BSocketHelper.shared.send(msg: requestJson, toDeviceSerial: toDeviceSerial, deviceTypes: [.kds], crypt: true)
     }
     
     
