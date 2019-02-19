@@ -190,4 +190,5 @@ Still, if you need to provide more information in your order, please check all o
     var image: String? // Image URL
     var ingredients: [String]? // List of ingredients
     var steps: [String]? // List of steps
+    var transType: AlleeTransType = .insert // Type of transaction (insert, delete, update)
 
