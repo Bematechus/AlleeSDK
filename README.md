@@ -151,6 +151,7 @@ Still, if you need to provide more information in your order, please check all o
     var summary: AlleeSummary? // Summary of this item
     var itemRecipe: AlleeItemRecipe? // Recipe of this item
     var itemType: ItemType = .regular // Item priority (regular, fire)
+    var category: String? // Item category
     
     
 #### AlleeCondiment
