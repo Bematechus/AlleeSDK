@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA00E31E2297071B0074C279 /* BSocketHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA00E31D2297071B0074C279 /* BSocketHelper.framework */; };
 		FA0CE2DD21C12D9100C52F68 /* SocketNotifyBump.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2DA21C12D9100C52F68 /* SocketNotifyBump.swift */; };
 		FA0CE2DE21C12D9100C52F68 /* SocketOrdersBumpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2DB21C12D9100C52F68 /* SocketOrdersBumpRequest.swift */; };
 		FA0CE2DF21C12D9100C52F68 /* SocketOrdersBumpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2DC21C12D9100C52F68 /* SocketOrdersBumpResponse.swift */; };
@@ -19,7 +20,6 @@
 		FA1BA5C3210A41BB0008030E /* SocketSendOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA5BD210A41BB0008030E /* SocketSendOrder.swift */; };
 		FA1BA60E210A44CC0008030E /* AlleeTransType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA5BF210A41BB0008030E /* AlleeTransType.swift */; };
 		FA1BA610210A44CC0008030E /* AlleeCondiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA5C1210A41BB0008030E /* AlleeCondiment.swift */; };
-		FA1C3E94211B64A300E0D18C /* BSocketHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1C3E93211B64A300E0D18C /* BSocketHelper.framework */; };
 		FA798C95212612470053ED23 /* AlleeSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA798C94212612470053ED23 /* AlleeSummary.swift */; };
 		FAA71FD8215D4A2A0006E03D /* AlleeItemRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA71FD7215D4A2A0006E03D /* AlleeItemRecipe.swift */; };
 		FAB0992E2109191600CE1D5C /* AlleeSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB0992C2109191600CE1D5C /* AlleeSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA00E31D2297071B0074C279 /* BSocketHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSocketHelper.framework; path = Frameworks/BSocketHelper.framework; sourceTree = "<group>"; };
 		FA0CE2DA21C12D9100C52F68 /* SocketNotifyBump.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketNotifyBump.swift; sourceTree = "<group>"; };
 		FA0CE2DB21C12D9100C52F68 /* SocketOrdersBumpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketOrdersBumpRequest.swift; sourceTree = "<group>"; };
 		FA0CE2DC21C12D9100C52F68 /* SocketOrdersBumpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketOrdersBumpResponse.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		FA1BA5BD210A41BB0008030E /* SocketSendOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketSendOrder.swift; sourceTree = "<group>"; };
 		FA1BA5BF210A41BB0008030E /* AlleeTransType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeTransType.swift; sourceTree = "<group>"; };
 		FA1BA5C1210A41BB0008030E /* AlleeCondiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeCondiment.swift; sourceTree = "<group>"; };
-		FA1C3E93211B64A300E0D18C /* BSocketHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSocketHelper.framework; path = Frameworks/BSocketHelper.framework; sourceTree = "<group>"; };
 		FA798C94212612470053ED23 /* AlleeSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeSummary.swift; sourceTree = "<group>"; };
 		FAA71FD7215D4A2A0006E03D /* AlleeItemRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlleeItemRecipe.swift; sourceTree = "<group>"; };
 		FAB099292109191600CE1D5C /* AlleeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlleeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1C3E94211B64A300E0D18C /* BSocketHelper.framework in Frameworks */,
+				FA00E31E2297071B0074C279 /* BSocketHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +151,7 @@
 		FAB0994321091A5A00CE1D5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FA1C3E93211B64A300E0D18C /* BSocketHelper.framework */,
+				FA00E31D2297071B0074C279 /* BSocketHelper.framework */,
 				FA1BA5BB210A41BB0008030E /* AlleeCommon */,
 			);
 			name = Frameworks;
@@ -202,7 +202,7 @@
 				TargetAttributes = {
 					FAB099282109191600CE1D5C = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -412,7 +412,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -449,7 +449,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bematech.AlleeSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
