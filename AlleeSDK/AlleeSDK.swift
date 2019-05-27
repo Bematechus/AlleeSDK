@@ -10,7 +10,7 @@ import Foundation
 import BSocketHelper
 
 
-@objc open class AlleeSDK: NSObject, BSocketHelperDelegate {
+@objc open class AlleeSDK: NSObject, PrivateBSocketHelperDelegate {
 
     @objc static public let shared = AlleeSDK()
     
@@ -289,4 +289,9 @@ import BSocketHelper
             return lhs.guid == rhs.guid
         }
     }
+}
+
+
+private protocol PrivateBSocketHelperDelegate: BSocketHelperDelegate {
+    
 }

@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
                        'Frameworks/AlleeCommon/Models/*.swift',
                        'Frameworks/AlleeCommon/Messages/*.swift'
 
-  s.vendored_frameworks   = 'Frameworks/BSocketHelper.framework'
+  s.vendored_frameworks = 'Frameworks/BSocketHelper.framework'
  
 end
