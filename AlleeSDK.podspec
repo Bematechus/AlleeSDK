@@ -19,3 +19,8 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'Frameworks/BSocketHelper.framework'
  
 end
+
+# To send a new version follow the steps:
+## Update the Cocoapods: sudo gem install cocoapods -n /usr/local/bin
+## Validade the changes: pod lib lint AlleeSDK.podspec
+## If validade was success so push the update: pod trunk push AlleeSDK.podspec
