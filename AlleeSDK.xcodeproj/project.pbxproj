@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA00E31E2297071B0074C279 /* BSocketHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA00E31D2297071B0074C279 /* BSocketHelper.framework */; };
+		50019A8525CAC9E000E26D09 /* BSocketHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50019A8425CAC9E000E26D09 /* BSocketHelper.framework */; platformFilter = ios; };
 		FA0CE2DD21C12D9100C52F68 /* SocketNotifyBump.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2DA21C12D9100C52F68 /* SocketNotifyBump.swift */; };
 		FA0CE2DE21C12D9100C52F68 /* SocketOrdersBumpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2DB21C12D9100C52F68 /* SocketOrdersBumpRequest.swift */; };
 		FA0CE2DF21C12D9100C52F68 /* SocketOrdersBumpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CE2DC21C12D9100C52F68 /* SocketOrdersBumpResponse.swift */; };
@@ -48,7 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FA00E31D2297071B0074C279 /* BSocketHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSocketHelper.framework; path = Frameworks/BSocketHelper.framework; sourceTree = "<group>"; };
+		50019A8425CAC9E000E26D09 /* BSocketHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSocketHelper.framework; path = "../../../../Users/carlosferreira/Library/Developer/Xcode/DerivedData/BSocketHelper-blbgozzzniyazneuyesulpobzzyn/Build/Products/Debug-iphoneos/BSocketHelper.framework"; sourceTree = "<group>"; };
 		FA0CE2DA21C12D9100C52F68 /* SocketNotifyBump.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketNotifyBump.swift; sourceTree = "<group>"; };
 		FA0CE2DB21C12D9100C52F68 /* SocketOrdersBumpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketOrdersBumpRequest.swift; sourceTree = "<group>"; };
 		FA0CE2DC21C12D9100C52F68 /* SocketOrdersBumpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketOrdersBumpResponse.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA00E31E2297071B0074C279 /* BSocketHelper.framework in Frameworks */,
+				50019A8525CAC9E000E26D09 /* BSocketHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +151,7 @@
 		FAB0994321091A5A00CE1D5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FA00E31D2297071B0074C279 /* BSocketHelper.framework */,
+				50019A8425CAC9E000E26D09 /* BSocketHelper.framework */,
 				FA1BA5BB210A41BB0008030E /* AlleeCommon */,
 			);
 			name = Frameworks;
